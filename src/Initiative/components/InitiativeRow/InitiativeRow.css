@@ -1,0 +1,11 @@
+.row {
+  @apply flex justify-between p-2;
+}
+
+.row:nth-child(even) {
+  @apply bg-slate-200;
+}
+
+.text {
+  @apply text-lg;
+}

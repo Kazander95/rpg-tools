@@ -1,11 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
+import { v4 as uuid } from "uuid";
 
-interface Participant {
-  id: string;
-  name: string;
+type ParticipantInput = {
   initiative: number;
-}
+  name: string;
+};
+
+type Participant = ParticipantInput & {
+  id: string;
+};
 
 type InitiativeState = Array<Participant>;
 
@@ -17,9 +21,9 @@ export const initiativeSlice = createSlice({
   reducers: {
     addParticipant: (
       state: InitiativeState,
-      action: PayloadAction<Participant>
+      action: PayloadAction<ParticipantInput>
     ) => {
-      state.push(action.payload);
+      state.push({ ...action.payload, id: uuid() });
     },
     modifyParticpant: (
       state: InitiativeState,

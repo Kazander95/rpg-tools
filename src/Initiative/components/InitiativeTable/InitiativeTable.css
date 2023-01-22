@@ -1,0 +1,11 @@
+.container {
+  @apply w-96 rounded-lg border border-solid border-gray-500 p-4;
+}
+
+.control-row {
+  @apply mb-2 flex gap-2;
+}
+
+.header {
+  @apply mb-2;
+}
